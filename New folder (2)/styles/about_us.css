@@ -1,0 +1,38 @@
+
+/* about us */
+
+.about{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4rem;
+}
+
+.about .image{
+    flex: 1 1 30rem;
+}
+
+.about .image img{
+    width: 100%;
+    border-radius: 25%;
+}
+
+.about .content{
+    flex: 1 1 30rem;
+}
+
+.about .content h3{
+    font-size: 3.5rem;
+    color: var(--color);
+    font-family: 'Merienda One', cursive;
+    padding-bottom: 1rem;
+}
+
+.about .content p{
+    padding: 1rem 0;
+    line-height: 2;
+    font-size: 1.5rem;
+    color: #666;
+}
+
+/* about us end */

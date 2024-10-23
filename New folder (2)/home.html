@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- fontawesome cdn -->
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- custom css link -->
+
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/about_us.css">
+    <link rel="stylesheet" href="styles/banner.css">
+    <link rel="stylesheet" href="styles/blog.css">
+    <link rel="stylesheet" href="styles/coffe-base.css">
+    <link rel="stylesheet" href="styles/contact.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/general.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="styles/menu.css">
+    <link rel="stylesheet" href="styles/offer.css">
+    <link rel="stylesheet" href="styles/query.css">
+    <link rel="stylesheet" href="styles/review.css">
+    <link rel="stylesheet" href="styles/shopcart.css">
+</head>
+<body class>
+    
+    <!-- header section starts -->
+
+    <header class="header">
+
+        <a href="#" class="logo"> <i class="fas fa-mug-hot"></i></a>
+
+        <nav class="navbar">
+            <a href="home.html" class="active">Home</a>
+            <a href="about.html">About</a>
+            <a href="menu.html">Menu</a>
+            <a href="review.html">Review</a>
+            <a href="blogs.html">Blogs</a>
+            <a href="mockup.html">Mockup</a>
+        </nav>
+
+        <div class="icons">
+            <div class="fas fa-bars" id="menu-btn"></div>
+            <div class="fas fa-search" id="search-btn"></div>
+            <div class="fas fa-shopping-cart" id="cart-btn"></div>
+            <div class="fas fa-user" id="login-btn"></div>
+        </div>
+
+        <form action="" class="search-form">
+            <input type="search" name="" id="search-box" placeholder="search here..">
+            <label class="fas fa-search"></label>
+        </form>
+
+        <!-- shopping cart -->
+
+        <div class="shopping-cart">
+
+            <div class="box">
+                <i class="fas fa-trash"></i>
+                <img src="images/cart-1.png" alt="">
+                <div class="content">
+                    <h3>Don Mac</h3>
+                    <span class="price">&#x20B1;39.00</span>
+                    <span class="quantity"> qty: 1</span>
+                </div>
+            </div>
+
+            <div class="box">
+                <i class="fas fa-trash"></i>
+                <img src="images/cart-2.png" alt="">
+                <div class="content">
+                    <h3>Don Berry</h3>
+                    <span class="price">&#x20B1;39.00</span>
+                    <span class="quantity"> qty: 1</span>
+                </div>
+            </div>
+
+            <div class="box">
+                <i class="fas fa-trash"></i>
+                <img src="images/cart-3.png" alt="">
+                <div class="content">
+                    <h3>Don mocha</h3>
+                    <span class="price">&#x20B1;39.00</span>
+                    <span class="quantity"> qty: 1</span>
+                </div>
+            </div>
+
+            <div class="total">total : &#x20B1;117.00</div>
+            <a href="#" class="btn">checkout</a>
+
+        </div>
+
+        <!-- login -->
+
+        <form action="" class="login-form">
+            <h3>login form</h3>
+            <input type="email" placeholder="Your Email" class="box">
+            <input type="password" placeholder="Your Password" class="box">
+            <p>forget your password <a href="#"> click here</a></p>
+            <p>don't have an account? <a href="#"> create now</a></p>
+            <input type="submit" value="login" class="btn">
+        </form>
+
+    </header>
+
+    <!-- header section ends -->
+
+    <!-- home section starts -->
+    <section class="home" id="home">
+       
+        <div class="content">
+           
+            <h3>Enjoy more Spend Less</h3>
+            <p></p>
+            <a href="#offer" class="btn">Explore now</a>
+        </div> 
+        
+    </section>
+
+    <!-- home section ends -->
+
+    <!-- banner section starts -->
+
+    <section class="banner-container">
+
+        <div class="banner">
+            <img src="images/wallpaper2.png" alt="">
+            <div class="content">
+                <span>Don Macha</span>
+                <h3>39&#x20B1; only</h3>
+                <a href="menu.html" class="btn"> shop now</a>
+            </div>
+        </div>
+
+        <div class="banner">
+            <img src="images/wallpaper1.png" alt="">
+            <div class="content">
+                <span>Don Macchiatos</span>
+                <h3>39&#x20B1; only</h3>
+                <a href="menu.html" class="btn"> shop now</a>
+            </div>
+        </div>
+
+        <div class="banner">
+            <img src="images/wallpaper.png" alt="">
+            <div class="content">
+                <span>Don Berry</span>
+                <h3>39&#x20B1; only</h3>
+                <a href="menu.html" class="btn"> shop now</a>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- banner section ends -->
+
+    <!-- offer section starts -->
+
+    <section class="offer" id="offer">
+
+        <div class="heading">
+            <h3>our offer</h3>
+        </div>
+
+        <div class="box-container">
+
+            <div class="box">
+                <img src="images/offer-1.png" alt="">
+                <h3>varieties of coffee</h3>
+                <p>Don Mac has different coffes and Different godlike taste!</p>
+            </div>
+
+            <div class="box">
+                <img src="images/offer-2.png" alt="">
+                <h3>varieties of flavors</h3>
+                <p>Don Mac has different flavors that explore your taste likes!</p>
+            </div>
+
+
+            <div class="box">
+                <img src="images/offer-4.png" alt="">
+                <h3>varieties of Designs</h3>
+                <p>Without Designs, there no different Coffe's you will taste</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- offer section ends -->
+
+    <!-- footer section starts -->
+
+    <section class="footer">
+
+        <div class="box-container">
+
+            <div class="box">
+                <h3><i class="fas fa-mug-hot"></i>Don Macchiatos Coffee</h3>
+                <a href="#" class="links"> <i class="fas fa-phone"></i> +63-456-7890</a>
+                <a href="#" class="links"> <i class="fas fa-envelope"></i>macchiatos@gmail.com</a>
+                <a href="#" class="links"> <i class="fas fa-map-marker-alt"></i>Cebu Citye</a>
+            </div>
+
+        </div>
+
+        <div class="credit"><span>Mac Coffe</span> | all rights reserved! </div>
+
+    </section>
+
+    <!-- footer section ends -->
+
+    <script src="script.js"></script>
+</body>
+</html>

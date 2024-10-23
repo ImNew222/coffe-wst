@@ -1,0 +1,49 @@
+
+/* coffee base */
+
+.base .box-container{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4rem;
+}
+
+.base .box-container .image{
+    flex: 1 1 30rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.base .box-container .image img{
+    width: 100%;
+    border-radius: 50%;
+}
+
+.base .box-container .container{
+    flex: 1 1 40rem;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.base .box-container .container .item{
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.base .box-container .container .item .content{
+    margin-left: 2rem;
+}
+
+.base .box-container .container .item .content h3{
+    font-size: 2.2rem;
+    color: var(--color);
+}
+
+.base .box-container .container .item .content p{
+    margin: .5rem 0;
+    font-size: 1.5rem;
+    line-height: 1.6;
+}
+
+/* end */
