@@ -1,0 +1,310 @@
+import java.io.*;
+import java.text.DecimalFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+
+public class Main {
+
+    // Global-like variables (declared as static fields)
+    static float totalAmount = 0;
+    static float price, amount, cash, change;
+    static int quantity;
+    static String userOccupation;
+    static String userPin;
+    static String currentUserId;
+
+    static Scanner scanner = new Scanner(System.in);
+
+    // Date and time
+    static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+    static LocalDateTime now = LocalDateTime.now();
+
+    public static void main(String[] args) {
+        System.out.println("===============================================================");
+        System.out.println(" ______________________________________________________________");
+        System.out.println("|                                                             |");
+        System.out.println("|                         Welcome Customer!                   |");
+        System.out.println("|_____________________________________________________________|");
+        System.out.println("===============================================================\n\n");
+
+        System.out.println("       Welcome to Bookingan Restaurant, where we offer a delightful");
+        System.out.println("selection of main dishes, desserts, and drinks to satisfy your cravings!\n");
+
+        System.out.println("\t\tChief:    Abelgas Junel");
+        System.out.println("\t\tStaff:    Agosto Vincent");
+        System.out.println("\t\tServer:   Alinghawa Mike");
+        System.out.println("\t\tDelivery: Ang Joost Laven");
+        System.out.println("\t\tCrew:     Casicas James");
+        System.out.println("\t\tDelivery: Singson Johnrey\n");
+
+        // Display main menu
+        showMainMenu();
+    }
+
+    // Function to display the main menu and handle user choices
+    public static void showMainMenu() {
+        String choice;
+        System.out.println("        =x=                                                       ");
+        System.out.println("      = x  =x      |===========================|================| ");
+        System.out.println("     =  = x =      |     [1]-Login             |                | ");
+        System.out.println("     = x     =     |===========================|                  ");
+        System.out.println("        =  =       |     [2]-Registration      |                  ");
+        System.out.println("         =         |===========================|                  ");
+        System.out.println(" |       =         |     [3]-Forgot Password   |                  ");
+        System.out.println(" |================ |===========================|                  ");
+        System.out.print("-> ");
+        choice = scanner.next();
+
+        switch (choice) {
+            case "1":
+            case "A":
+            case "a":
+                login();
+                break;
+            case "2":
+            case "B":
+            case "b":
+                registration();
+                break;
+            case "3":
+            case "C":
+            case "c":
+                forgotPassword();
+                break;
+            default:
+                System.out.println("Invalid choice. Please select again.");
+                showMainMenu();
+                break;
+        }
+    }
+
+    // Registration function
+    public static void registration() {
+        System.out.print("Enter the Username: ");
+        String ruserId = scanner.next();
+        System.out.print("Enter the Password: ");
+        String rpassword = scanner.next();
+        System.out.print("Enter Occupation: ");
+        String occupation = scanner.next();
+        System.out.print("Enter a PIN for payment: ");
+        String rpin = scanner.next();
+
+        try (FileWriter fw = new FileWriter("userInfos.txt", true);
+             BufferedWriter bw = new BufferedWriter(fw);
+             PrintWriter out = new PrintWriter(bw)) {
+            out.println(ruserId + " " + rpassword + " " + occupation + " " + rpin);
+            System.out.println("Registration Successful!");
+        } catch (IOException e) {
+            System.out.println("An error occurred during registration.");
+        }
+
+        showMainMenu();
+    }
+
+    // Login function
+    public static void login() {
+        System.out.print("Enter the Username: ");
+        String luserId = scanner.next();
+        System.out.print("Enter the Password: ");
+        String lpassword = scanner.next();
+
+        try (BufferedReader br = new BufferedReader(new FileReader("userInfos.txt"))) {
+            String line;
+            boolean loginSuccessful = false;
+            while ((line = br.readLine()) != null) {
+                String[] userInfo = line.split(" ");
+                if (userInfo[0].equals(luserId) && userInfo[1].equals(lpassword)) {
+                    loginSuccessful = true;
+                    currentUserId = userInfo[0];
+                    userOccupation = userInfo[2];
+                    userPin = userInfo[3];
+                    System.out.println("Login Successful!");
+                    menu();
+                    break;
+                }
+            }
+            if (!loginSuccessful) {
+                System.out.println("Login Failed. Incorrect Username or Password.");
+                showMainMenu();
+            }
+        } catch (IOException e) {
+            System.out.println("An error occurred during login.");
+        }
+    }
+
+    // Forgot Password function
+    public static void forgotPassword() {
+        System.out.println("1. Find the ID");
+        System.out.println("2. Back to the menu");
+        int option = scanner.nextInt();
+
+        switch (option) {
+            case 1:
+                System.out.print("Enter user ID or Username: ");
+                String suserId = scanner.next();
+                boolean accountFound = false;
+                try (BufferedReader br = new BufferedReader(new FileReader("userInfos.txt"))) {
+                    String line;
+                    while ((line = br.readLine()) != null) {
+                        String[] userInfo = line.split(" ");
+                        if (userInfo[0].equals(suserId)) {
+                            accountFound = true;
+                            System.out.println("Account found!");
+                            System.out.println("Password: " + userInfo[1]);
+                            break;
+                        }
+                    }
+                } catch (IOException e) {
+                    System.out.println("An error occurred.");
+                }
+                if (!accountFound) {
+                    System.out.println("Account not found.");
+                }
+                showMainMenu();
+                break;
+            case 2:
+                showMainMenu();
+                break;
+            default:
+                System.out.println("Invalid option.");
+                showMainMenu();
+                break;
+        }
+    }
+
+    // Menu for food selection
+    public static void menu() {
+        System.out.println("              Today's Date: " + dtf.format(now));
+        System.out.println("===============================================================");
+        System.out.println(" |                  Welcome to Bookingan Restaurant           |");
+        System.out.println("===============================================================");
+        System.out.println(" |                       Today's Specials                     |");
+        System.out.println("===============================================================");
+        System.out.println(" | Set[1] Main Dish     | Set[2] Desserts    | Set[3] Drinks  |");
+        System.out.println("===============================================================");
+        System.out.print("Hi, Customer which one do you like to choose: ");
+        String choice = scanner.next();
+
+        switch (choice) {
+            case "1":
+            case "A":
+            case "a":
+                mainDish();
+                break;
+            case "2":
+            case "B":
+            case "b":
+                dessertDish();
+                break;
+            case "3":
+            case "C":
+            case "c":
+                drinks();
+                break;
+            default:
+                System.out.println("Invalid choice. Please try again.");
+                menu();
+                break;
+        }
+    }
+
+    // Function for Main Dish selection
+    public static void mainDish() {
+        char addAnother;
+        String choice;
+        do {
+            System.out.println("==============================================================");
+            System.out.println("      |                     ^[Main Dish]^                    |");
+            System.out.println("      |  [1] Beef                    [Prices: Php 50.0]      |");
+            System.out.println("      |  [2] Chicken                 [Prices: Php 35.5]      |");
+            System.out.println("      |  [3] Pork                    [Prices: Php 60.5]      |");
+            System.out.println("      |  [4] Vegetables              [Prices: Php 30.5]      |");
+            System.out.println("      |  [5] Karderita with rice     [Prices: Php 45.0]      |");
+            System.out.println("==============================================================");
+
+            boolean validChoice = false;
+            while (!validChoice) {
+                System.out.print("Enter your choice: ");
+                choice = scanner.next();
+                switch (choice) {
+                    case "1":
+                        price = 50.0f;
+                        validChoice = true;
+                        break;
+                    case "2":
+                        price = 35.5f;
+                        validChoice = true;
+                        break;
+                    case "3":
+                        price = 60.5f;
+                        validChoice = true;
+                        break;
+                    case "4":
+                        price = 30.5f;
+                        validChoice = true;
+                        break;
+                    case "5":
+                        price = 45.0f;
+                        validChoice = true;
+                        break;
+                    default:
+                        System.out.println("Invalid choice. Try again.");
+                        break;
+                }
+            }
+
+            System.out.print("Enter quantity: ");
+            quantity = scanner.nextInt();
+            amount = price * quantity;
+            totalAmount += amount;
+
+            System.out.print("Do you want to add another item? (Y/N): ");
+            addAnother = scanner.next().charAt(0);
+        } while (addAnother == 'Y' || addAnother == 'y');
+
+        payment();
+    }
+
+    // Function for Dessert selection
+    public static void dessertDish() {
+        // Similar to mainDish(), implement the dessert section here
+        System.out.println("Dessert section coming soon...");
+        payment();
+    }
+
+    // Function for Drinks selection
+    public static void drinks() {
+        // Similar to mainDish(), implement the drinks section here
+        System.out.println("Drinks section coming soon...");
+        payment();
+    }
+
+    // Payment function
+    public static void payment() {
+        DecimalFormat df = new DecimalFormat("0.00");
+        System.out.println("------------------------------------------------");
+        System.out.println("Total amount: Php " + df.format(totalAmount));
+
+        System.out.print("Enter your payment PIN: ");
+        String enteredPin = scanner.next();
+
+        if (enteredPin.equals(userPin)) {
+            System.out.print("Enter cash: ");
+            cash = scanner.nextFloat();
+            change = cash - totalAmount;
+
+            if (change < 0) {
+                System.out.println("Insufficient cash. Try again.");
+                payment();
+            } else {
+                System.out.println("Change: Php " + df.format(change));
+                System.out.println("Thank you for dining with us!");
+                totalAmount = 0; // reset the total
+            }
+        } else {
+            System.out.println("Invalid PIN. Try again.");
+            payment();
+        }
+    }
+}
