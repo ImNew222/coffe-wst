@@ -1,0 +1,111 @@
+/* shopping cart */
+
+.header .shopping-cart {
+    position: absolute;
+    top: 110%; 
+    right: -110%;
+    padding: 1rem;
+    border-radius: .5rem;
+    background: #fff;
+    box-shadow: var(--box-shadow);
+    width: 5rem;
+    transition: right 0.8s ease-in-out; /* Explicitly transition the 'right' property */
+}
+
+/* Active state (when a class 'active' is added) */
+.header .shopping-cart.active {
+    right: 2rem;
+}
+
+/* Hover state (when hovered over) */
+.header .shopping-cart:hover {
+    right: 2rem;
+}
+
+
+.header .shopping-cart .box{
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    position: relative;
+    margin: 2rem 0;
+}
+
+.header .shopping-cart .box img{
+    height: 7rem;
+}
+
+.header .shopping-cart .box .fa-trash{
+    font-size: 2rem;
+    position: absolute;
+    top: 50%; right: 2rem;
+    cursor: pointer;
+    color: #666;
+    transform: translateY(-50%);
+}
+
+.header .shopping-cart .box .fa-trash:hover{
+    color: var(--color);
+}
+
+.header .shopping-cart .box .content h3{
+    color: var(--color);
+    font-size: 1.7rem;
+    padding-bottom: 1rem;
+}
+
+.header .shopping-cart .box .content span{
+    color: #666;
+    font-size: 1.6rem;
+}
+
+.header .shopping-cart .box .content .quantity{
+    padding-left: 1rem;
+}
+
+.header .shopping-cart .total{
+    font-size: 2.5rem;
+    padding: 1rem 0;
+    text-align: center;
+    color: var(--color);
+}
+
+.header .shopping-cart .btn{
+    display: block;
+    text-align: center;
+    margin: 1rem;
+}
+
+/* Social Media Container */
+.social-media {
+    display: flex;
+    flex-direction: column; /* Arrange children in a column */
+    align-items: center; /* Center align icons horizontally */
+    gap: .5rem; /* Add spacing between icons */
+    margin: 1rem;
+  }
+  
+  /* Individual Social Icon Styling */
+  .social-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    background-color: #29292a;
+    color: white; /* Icon color */
+    border-radius: 50%; /* Make it circular */
+    text-decoration: none; 
+    font-size: 1.7rem; /* Size of the icon */
+    transition: background-color 0.1s ease, transform 0.5s ease; /* Smooth hover effect */
+  }
+  
+  /* Hover Effect */
+  .social-icon:hover {
+    background-color: #101518; /* Darker shade on hover */
+    transform: scale(1.1); /* Slightly enlarge on hover */
+  }
+  
+
+
+/* end */

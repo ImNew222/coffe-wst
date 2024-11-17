@@ -1,0 +1,24 @@
+
+
+img{
+    width: 100%;
+    margin-bottom: 1em;  
+}
+
+.list {
+    columns: 300px;
+    
+}
+
+.sub-gallery h1{
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding-top: 8rem;
+    padding-bottom: 3rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 9px; 
+    color: light dark(#f8f0e3,#21242b);; 
+}

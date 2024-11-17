@@ -1,0 +1,120 @@
+
+/* menu */
+
+.menu .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+}
+
+.menu .box-container .box{
+    text-align: center;
+    padding: 2rem;
+    border-radius: 5%;
+    border: .2rem solid rgba(0,0,0,.1);
+    margin-top: 3rem;
+}
+
+.menu .box-container .box .image{
+    padding-bottom: 2.5rem;
+    margin-top: -6rem;
+}
+
+.menu .box-container .box .image img{
+    height: 25rem;
+}
+
+.menu .box-container .box .content h3{
+    font-size: 2.5rem;
+}
+
+.menu .box-container .box .content .stars{
+    padding: 1.5rem;
+}
+
+.menu .box-container .box .content .stars i{
+    color: rgb(183, 206, 81);
+    font-size: 2.5rem;
+    margin-bottom: .5rem;
+}
+
+.menu .box-container .box .content .price{
+    color: var(--color);
+    font-size: 1.5rem;
+    margin-bottom: .5rem;
+}
+
+.menu .box-container .box .content .price span{
+    text-decoration: line-through;
+    font-weight: lighter;
+    color: #222;
+    font-size: 1.5rem;
+}
+
+.menu .box-container .box .icons a{
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    border-radius: 50%;
+    font-size: 2rem;
+    border: .1rem solid var(--color);
+    color: var(--color);
+    margin: .3rem;
+}
+
+.menu .box-container .box .icons a:hover{
+    background: var(--color);
+    color: #fff;
+}
+
+/* Default heart icon*/
+.fas.fa-heart {
+    color: #999; 
+    font-size: 0.5rem;
+    position: relative;
+    cursor: pointer;
+    background-color: #f8f0e3;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Active state for clicked heart */
+.fas.fa-heart.clicked {
+    color: #ee0f55; 
+    background-color: #ffe0e6;
+}
+
+
+.fas.fa-heart.clicked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: rgba(224, 36, 94, 0.2); /* Faded pink background effect */
+    
+    transform: translate(-50%, -50%) scale(1);
+    animation: pulseBackground 0.6s ease-out forwards;
+}
+
+/* Keyframes for the pulse effect */
+@keyframes pulseBackground {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        border-radius: 50%;
+        opacity: 0.8;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.5);
+        border-radius: 50%;
+        opacity: 0.3;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.8);
+        border-radius: 50%;
+        opacity: 0;
+    }
+}
+
+
+/* end */

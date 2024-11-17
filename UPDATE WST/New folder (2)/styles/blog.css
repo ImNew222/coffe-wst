@@ -1,0 +1,98 @@
+/* blog */
+
+.blog {
+    display: flex;
+    flex-wrap: wrap;  /* Allow wrapping */
+}
+
+.blog .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+}
+
+.blog .box-container .box {
+    border: 0.1rem solid rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;  /* Stack content vertically */
+    height: 100%;  /* Let box grow to fit content */
+}
+
+.blog .box-container .box .image {
+    height: 25rem;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 1rem 1rem 0 0;
+}
+
+.blog .box-container .box .image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.blog .box-container .box:hover .image img {
+    transform: scale(1.2);
+}
+
+.blog .box-container .box .content {
+    padding: 2rem 2.5rem;
+    flex-grow: 1;  /* Allow content to take up remaining space */
+}
+
+.blog .box-container .box .content .icons {
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.blog .box-container .box .content .icons a {
+    font-size: 1.4rem;
+    color: #666;
+}
+
+.blog .box-container .box .content .icons a:hover {
+    color: var(--color);
+}
+
+.blog .box-container .box .content .icons a i {
+    color: var(--color);
+    padding-right: 0.5rem;
+}
+
+.blog .box-container .box .content h3 {
+    font-size: 2.2rem;
+    color: light dark(#f8f0e3,#21242b);
+
+}
+.blog .box-container .box .content p {
+    font-size: 1.4rem;
+    color: light dark(#f8f0e3,#21242b);
+    line-height: 2;
+    padding: 1rem 0;
+}
+
+/* Button styling */
+.btn {
+    margin-top: auto;  /* Push button to the bottom of the .box */
+    display: inline-block;
+    padding: 0.8rem 3rem;
+    font-size: 1.7rem;
+    border-radius: 0.5rem;
+    border: 0.2rem solid var(--color);
+    color: var(--color);
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s, color 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(5px);
+    background: var(--color);
+    color: #fff;
+}
+
+
+
